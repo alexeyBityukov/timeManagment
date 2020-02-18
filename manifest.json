@@ -3,10 +3,10 @@
   "version": "0.1",
   "description": "Interval Timer",
   "browser_action": {
-	  "default_popup": "popup.html"
+	  "default_popup": "src/popup/index.html"
 	},
   "background": {
-    "scripts": ["index.js"],
+    "scripts": ["src/background/index.js"],
     "persistent": false
   },
   "permissions": ["storage"],
