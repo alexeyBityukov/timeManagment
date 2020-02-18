@@ -21,7 +21,7 @@ const startInterval = () => {
 	let maxSoundInteval = Date.now() + intervalTimerDurationSec * 1000;
 
 	const play = () => {
-	  var audio = new Audio('./resources/interval.mp3');
+	  var audio = new Audio('./resources/sounds/interval.mp3');
 	  audio.play();
 	};
 	const intervalCallback = () => {

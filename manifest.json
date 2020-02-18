@@ -4,7 +4,13 @@
   "description": "Interval Timer",
   "browser_action": {
 	  "default_popup": "src/popup/index.html"
-	},
+	},    
+  "icons": {
+    "16": "resources/images/16.png",
+    "32": "resources/images/32.png",
+    "48": "resources/images/48.png",
+    "128": "resources/images/128.png"
+  },
   "background": {
     "scripts": ["src/background/index.js"],
     "persistent": false
