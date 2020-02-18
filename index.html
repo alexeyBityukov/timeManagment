@@ -1,0 +1,43 @@
+<script>
+let interval = undefined;
+const intervalTimerDurationSec = 5 * 60;
+
+const setIntervalTimerTextContent = (text) => {
+	const intervalTimer = document.getElementsByClassName('intervalTimer')[0];
+	intervalTimer.textContent = text;
+};
+const getIntervalTimerStr = (timestamp) => {
+	const hour = (Math.floor(timestamp / 3600)).toString().padStart(2, '0');	
+	const minute = (Math.floor((timestamp - hour * 3600)/ 60)).toString().padStart(2, '0');	
+	const seconds = (timestamp - hour * 3600 - minute * 60).toString().padStart(2, '0');
+	return `${hour}:${minute}:${seconds}`;
+};
+const startInterval = () => {
+	const timeout = 1 * 100;
+	let maxSoundInteval = Date.now() + intervalTimerDurationSec * 1000;
+
+	const play = () => {
+	  var audio = new Audio('./interval.mp3');
+	  audio.play();
+	};
+	const intervalCallback = () => {
+		setIntervalTimerTextContent(getIntervalTimerStr(Math.round((maxSoundInteval - Date.now()) / 1000)));
+		if(Date.now() > maxSoundInteval) {
+			maxSoundInteval = Date.now() + intervalTimerDurationSec * 1000;
+			play();
+		}
+	}
+	if(interval === undefined) {
+		play();
+		interval = setInterval(intervalCallback, timeout);
+	}
+};	
+const stopInterval = () => {
+	clearInterval(interval);
+	interval = undefined;
+	setIntervalTimerTextContent('');
+};
+</script>
+<button onclick="startInterval()">Start interval</button>
+<button onclick="stopInterval()">Stop interval</button>
+<div class="intervalTimer"></span>
