@@ -1,6 +1,14 @@
 {
-  "name": "Getting Started Example",
-  "version": "1.0",
-  "description": "Build an Extension!",
+  "name": "Interval Timer",
+  "version": "0.1",
+  "description": "Interval Timer",
+  "browser_action": {
+	  "default_popup": "popup.html"
+	},
+  "background": {
+    "scripts": ["index.js"],
+    "persistent": false
+  },
+  "permissions": ["storage"],
   "manifest_version": 2
 }

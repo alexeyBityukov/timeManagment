@@ -1,10 +1,8 @@
-<script>
 let interval = undefined;
-const intervalTimerDurationSec = 5 * 60;
+const intervalTimerDurationSec = 5*60;
 
 const setIntervalTimerTextContent = (text) => {
-	const intervalTimer = document.getElementsByClassName('intervalTimer')[0];
-	intervalTimer.textContent = text;
+	chrome.storage.local.set({ intervalTimerTextContent: text });
 };
 const getIntervalTimerStr = (timestamp) => {
 	const hour = (Math.floor(timestamp / 3600)).toString().padStart(2, '0');	
@@ -12,8 +10,14 @@ const getIntervalTimerStr = (timestamp) => {
 	const seconds = (timestamp - hour * 3600 - minute * 60).toString().padStart(2, '0');
 	return `${hour}:${minute}:${seconds}`;
 };
+const stopInterval = () => {
+	clearInterval(interval);
+	interval = undefined;
+	setIntervalTimerTextContent('');
+};
+
 const startInterval = () => {
-	const timeout = 1 * 100;
+	const timeout = 1 * 25;
 	let maxSoundInteval = Date.now() + intervalTimerDurationSec * 1000;
 
 	const play = () => {
@@ -31,13 +35,19 @@ const startInterval = () => {
 		play();
 		interval = setInterval(intervalCallback, timeout);
 	}
+	else {
+		clearInterval(interval);
+		interval = undefined;
+		startInterval()
+	}
 };	
-const stopInterval = () => {
-	clearInterval(interval);
-	interval = undefined;
-	setIntervalTimerTextContent('');
-};
-</script>
-<button onclick="startInterval()">Start interval</button>
-<button onclick="stopInterval()">Stop interval</button>
-<div class="intervalTimer"></span>
+
+chrome.storage.onChanged.addListener(({ intervalStatus: { newValue, oldValue } = {} }) => {
+	if(newValue !== oldValue && (newValue === 'start' || newValue === 'stop')) {
+		const updateStatus = () => chrome.storage.local.set({ intervalStatus: 'process' });
+    	switch(newValue) {
+    		case 'start': updateStatus(); startInterval(); break;
+    		case 'stop': updateStatus(); stopInterval(); break;
+    	}
+  	}
+})
