@@ -12,9 +12,18 @@
     "128": "resources/images/128.png"
   },
   "background": {
-    "scripts": ["src/background/index.js"],
+    "page": "src/background/index.html",
     "persistent": false
   },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/overlay/index.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    "src/messages/index.js"
+ ],
   "permissions": ["storage"],
   "manifest_version": 2
 }

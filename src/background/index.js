@@ -1,9 +1,16 @@
+import { SHOW_OVERLAY, createMessage } from '../messages/index.js';
+
 let interval = undefined;
-const intervalTimerDurationSec = 5*60;
+const intervalTimerDurationSec = 10;
 
 const setIntervalTimerTextContent = (text) => {
 	chrome.storage.local.set({ intervalTimerTextContent: text });
 };
+
+const showOverlay = () => chrome.tabs.query({active: true, currentWindow: true}, function(tabs = []) {
+	chrome.tabs.sendMessage(tabs[0].id, createMessage(SHOW_OVERLAY));
+});
+
 const getIntervalTimerStr = (timestamp) => {
 	const hour = (Math.floor(timestamp / 3600)).toString().padStart(2, '0');	
 	const minute = (Math.floor((timestamp - hour * 3600)/ 60)).toString().padStart(2, '0');	
@@ -21,8 +28,9 @@ const startInterval = () => {
 	let maxSoundInteval = Date.now() + intervalTimerDurationSec * 1000;
 
 	const play = () => {
-	  var audio = new Audio('./resources/sounds/interval.mp3');
+	  var audio = new Audio('../../resources/sounds/interval.mp3');
 	  audio.play();
+	  showOverlay();
 	};
 	const intervalCallback = () => {
 		setIntervalTimerTextContent(getIntervalTimerStr(Math.round((maxSoundInteval - Date.now()) / 1000)));
