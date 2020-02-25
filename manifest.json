@@ -22,7 +22,8 @@
     }
   ],
   "web_accessible_resources": [
-    "src/messages/index.js"
+    "src/messages/index.js",
+    "src/overlay/test.js"
  ],
   "permissions": ["storage"],
   "manifest_version": 2

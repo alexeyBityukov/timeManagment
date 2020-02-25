@@ -7,8 +7,8 @@ const setIntervalTimerTextContent = (text) => {
 	chrome.storage.local.set({ intervalTimerTextContent: text });
 };
 
-const showOverlay = () => chrome.tabs.query({active: true, currentWindow: true}, function(tabs = []) {
-	chrome.tabs.sendMessage(tabs[0].id, createMessage(SHOW_OVERLAY));
+const showOverlay = () => chrome.tabs.query({active: true, currentWindow: true}, function([{ id } = {}]) {
+	chrome.tabs.sendMessage(id, createMessage(SHOW_OVERLAY));
 });
 
 const getIntervalTimerStr = (timestamp) => {
@@ -59,3 +59,9 @@ chrome.storage.onChanged.addListener(({ intervalStatus: { newValue, oldValue } =
     	}
   	}
 })
+
+chrome.runtime.onMessage.addListener(
+(request = {}, sender, sendResponse) => {
+	console.log(request);
+	return true;
+});
