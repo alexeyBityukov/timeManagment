@@ -1,4 +1,4 @@
-(async () => {
+window.onload = () => (async () => {
   const src = chrome.runtime.getURL("./src/messages/index.js");
   const {
     isMessage,
@@ -6,6 +6,7 @@
     createMessage,
     SEND_INTERVAL_INFO
   } = await import(src);
+  
 
   if(document.getElementById('intervalInfo') === null) {
     document.body.innerHTML += `<div
@@ -57,5 +58,3 @@
       return true;
     });
 })();
-
-
