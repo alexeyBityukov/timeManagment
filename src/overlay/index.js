@@ -1,4 +1,4 @@
-window.onload = () => setTimeout((async () => {
+(async () => {
   const src = chrome.runtime.getURL("./src/messages/index.js");
   const {
     isMessage,
@@ -6,27 +6,24 @@ window.onload = () => setTimeout((async () => {
     createMessage,
     SEND_INTERVAL_INFO
   } = await import(src);
-  
 
   if(document.getElementById('intervalInfo') === null) {
-    document.body.innerHTML += `<div
-      style="
-        position: fixed;
-        display: none;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        width: 100vw;
-        z-index: 2147483647;
-        top: 0;
-        left: 0;
-        background: white;
-      "
-      id="timeManagmenOverlay"
-    >
+    const overlay = document.createElement('div');
+    overlay.innerHTML = `
       <input type="text" id="intervalInfo" />
-      <button id="intervalInfoButton" >Send</button>
-    </div>`;
+      <button id="intervalInfoButton" >Send</button>`;
+    overlay.id = 'timeManagmenOverlay';
+    overlay.style.position = 'fixed';
+    overlay.style.display = 'none';
+    overlay.style.justifyContent = 'center';
+    overlay.style.alignItems = 'center';
+    overlay.style.height = '100vh';
+    overlay.style.width = '100vw';
+    overlay.style.zIndex = '2147483647';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.background = 'white';
+    document.body.append(overlay);
   }
 
   const showOverlay = () => {
@@ -58,4 +55,4 @@ window.onload = () => setTimeout((async () => {
       sendResponse({});
       return true;
     });
-}), 1000);
+})();
