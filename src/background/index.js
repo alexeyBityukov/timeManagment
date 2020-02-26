@@ -57,7 +57,8 @@ chrome.storage.onChanged.addListener(({ intervalStatus: { newValue, oldValue } =
     		case 'start': updateStatus(); startInterval(); break;
     		case 'stop': updateStatus(); stopInterval(); break;
     	}
-  	}
+		}
+	return true;	
 })
 
 chrome.runtime.onMessage.addListener((message = {}, sender, sendResponse) => {
@@ -75,5 +76,6 @@ chrome.runtime.onMessage.addListener((message = {}, sender, sendResponse) => {
 			} });
 		});
 	}
+	sendResponse({});
 	return true;
 });

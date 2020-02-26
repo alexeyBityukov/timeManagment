@@ -1,4 +1,4 @@
-window.onload = () => (async () => {
+window.onload = () => setTimeout((async () => {
   const src = chrome.runtime.getURL("./src/messages/index.js");
   const {
     isMessage,
@@ -55,6 +55,7 @@ window.onload = () => (async () => {
       if(request !== null && isMessage(SHOW_OVERLAY, request)) {
         showOverlay()
       }
+      sendResponse({});
       return true;
     });
-})();
+}), 1000);
