@@ -23,7 +23,7 @@
   ],
   "web_accessible_resources": [
     "src/messages/index.js",
-    "src/overlay/test.js"
+    "src/overlay/createEventOnUserPage.js"
  ],
   "permissions": ["storage"],
   "manifest_version": 2

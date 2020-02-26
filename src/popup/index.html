@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html>
-	<head></head>
+	<head>      
+		<style>
+			.intervalTimerLog {
+				margin: 0;
+				list-style: none;
+				padding: 10px 0 10px 10px;
+				width: 250px;
+			}
+			.intervalTimer, #clearLog {
+				float: right;
+			}
+			#clearLog {
+				margin-bottom: 8px;
+			}
+		</style>
+	</head>
     <body>
 		<button id="startInterval">Start interval</button>
 		<button id="stopInterval">Stop interval</button>
-		<div class="intervalTimer"></span>
+		<span class="intervalTimer"></span>
+		<ul class="intervalTimerLog"></ul>
+		<button id="clearLog">Clear log</button>
 		<script src="index.js"></script>
     </body>
 </html>

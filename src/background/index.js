@@ -1,14 +1,14 @@
-import { SHOW_OVERLAY, createMessage } from '../messages/index.js';
+import { SHOW_OVERLAY, SEND_INTERVAL_INFO, createMessage, isMessage } from '../messages/index.js';
 
 let interval = undefined;
-const intervalTimerDurationSec = 10;
+const intervalTimerDurationSec = 5*60;
 
 const setIntervalTimerTextContent = (text) => {
 	chrome.storage.local.set({ intervalTimerTextContent: text });
 };
 
 const showOverlay = () => chrome.tabs.query({active: true, currentWindow: true}, function([{ id } = {}]) {
-	chrome.tabs.sendMessage(id, createMessage(SHOW_OVERLAY));
+	chrome.tabs.sendMessage(id, createMessage(SHOW_OVERLAY), Function.prototype);
 });
 
 const getIntervalTimerStr = (timestamp) => {
@@ -60,8 +60,20 @@ chrome.storage.onChanged.addListener(({ intervalStatus: { newValue, oldValue } =
   	}
 })
 
-chrome.runtime.onMessage.addListener(
-(request = {}, sender, sendResponse) => {
-	console.log(request);
+chrome.runtime.onMessage.addListener((message = {}, sender, sendResponse) => {
+	if(isMessage(SEND_INTERVAL_INFO, message)) {
+		chrome.storage.local.get('intervalLog', ({ intervalLog = {}}) => {
+			chrome.storage.local.set({ intervalLog: {
+				...intervalLog,
+				[new Date().toLocaleDateString('ru-Ru', {
+					day: '2-digit',
+					month: '2-digit',
+					year: '2-digit',
+					hour: '2-digit',
+					minute : '2-digit'
+				})]: message.payload, 
+			} });
+		});
+	}
 	return true;
 });
