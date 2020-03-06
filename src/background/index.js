@@ -63,17 +63,18 @@ chrome.storage.onChanged.addListener(({ intervalStatus: { newValue, oldValue } =
 
 chrome.runtime.onMessage.addListener((message = {}, sender, sendResponse) => {
 	if(isMessage(SEND_INTERVAL_INFO, message)) {
-		chrome.storage.local.get('intervalLog', ({ intervalLog = {}}) => {
-			chrome.storage.local.set({ intervalLog: {
-				...intervalLog,
-				[new Date().toLocaleDateString('ru-Ru', {
+		chrome.storage.local.get('intervalLog', ({ intervalLog = [] }) => {
+			chrome.storage.local.set({ intervalLog: [
+				...intervalLog, {
+				timeStr: new Date().toLocaleDateString('ru-Ru', {
 					day: '2-digit',
 					month: '2-digit',
 					year: '2-digit',
 					hour: '2-digit',
 					minute : '2-digit'
-				})]: message.payload, 
-			} });
+				}),
+				description: message.payload, 
+			}]});
 		});
 	}
 	sendResponse({});

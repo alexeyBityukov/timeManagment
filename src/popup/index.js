@@ -1,13 +1,13 @@
 const setIntervalTimerTextContent = (text) => {
-	chrome.storage.local.get('intervalLog', ({ intervalLog = {}}) => {
+	chrome.storage.local.get('intervalLog', ({ intervalLog = [{}] }) => {
 		const intervalTimer = document.getElementsByClassName('intervalTimer')[0];
 		const intervalTimerLog = document.getElementsByClassName('intervalTimerLog')[0];
 		if(intervalTimer !== undefined && intervalTimerLog !== undefined) { 
 			intervalTimer.textContent = text;
 			intervalTimerLog.innerHTML = '';
-			Object.keys(intervalLog).forEach(key => {
+			intervalLog.forEach(({ timeStr, description }) => {
 				let liLast = document.createElement('li');
-				liLast.innerHTML = `${key}: ${intervalLog[key]}`;
+				liLast.innerHTML = `${timeStr}: ${description}`;
 				intervalTimerLog.append(liLast); 
 			});
 		}
@@ -23,7 +23,7 @@ const startInterval = () => {
 };	
 
 const clearLog = () => {
-	chrome.storage.local.set({ intervalLog: {} });
+	chrome.storage.local.set({ intervalLog: [] });
 	const intervalTimerLog = document.getElementsByClassName('intervalTimerLog')[0].innerHTML = '';
 };
 

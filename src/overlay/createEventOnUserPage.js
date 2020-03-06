@@ -11,3 +11,11 @@ document.addEventListener("keyup", function(event) {
       sendIntervalDescription()
     }
 });
+
+const sendIntervalFromPrev = () => {
+  const event = document.createEvent('Event');
+  event.initEvent('sendIntervalFromPrev');
+  document.dispatchEvent(event);
+}
+
+document.getElementsByClassName('wrapPrevIntervalDescription')[0].addEventListener("click", sendIntervalFromPrev);
