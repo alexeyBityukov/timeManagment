@@ -61,114 +61,61 @@
   };
 
   const listClassNames = [
-    'priority1Interval',
-    'priority2Interval',
-    'priority3Interval',
-    'priority4Interval',
-    'priority5Interval'
+    'priority1Interval_QWxleEJpdDIw',
+    'priority2Interval_QWxleEJpdDIw',
+    'priority3Interval_QWxleEJpdDIw',
+    'priority4Interval_QWxleEJpdDIw',
+    'priority5Interval_QWxleEJpdDIw'
   ];
 
-  if(document.getElementById('intervalInfo') === null) {
+  if(document.getElementById('intervalInfo_QWxleEJpdDE1') === null) {
     const overlay = document.createElement('div');
     overlay.innerHTML = `
-      <div class="root">
-        <div class="setNewInterval">
-          <input type="text" id="intervalInfo" class="buttonTimeManagment" />
-          <button id="intervalInfoButton" class="buttonTimeManagment">Send</button>
+      <div class="root_YWxleEJpdDAx">
+        <div class="setNewInterval_QWxleEJpdDEx">
+          <input type="text" id="intervalInfo_QWxleEJpdDE1" class="buttonTimeManagment_QWxleEJpdDE2" />
+          <button id="intervalInfoButton_QWxleEJpdDI2" class="buttonTimeManagment_QWxleEJpdDE2">Send</button>
         </div>
-        <div class="wrapPrevIntervalDescription">
-          <a class="prevIntervalDescription">${await getLastIntervalDescription()}</a>
+        <div class="wrapPrevIntervalDescription_YWxleEJpdDAy">
+          <a class="prevIntervalDescription_QWxleEJpdDEw">${await getLastIntervalDescription()}</a>
         </div>
-        <div class="quickDescInterval">
-          <button class="youtubeInterval buttonTimeManagment">YouTube</button>
-          <button class="twitchInterval buttonTimeManagment">Twitch</button>
-          <button class="habrInterval buttonTimeManagment">Habr</button>
-          <button class="budgetInterval buttonTimeManagment">Бюджет</button>
+        <div class="quickDescInterval_QWxleEJpdDEx">
+          <button class="youtubeInterval_QWxleEJpdDI1 buttonTimeManagment_QWxleEJpdDE2">YouTube</button>
+          <button class="twitchInterval_QWxleEJpdDI1 buttonTimeManagment_QWxleEJpdDE2">Twitch</button>
+          <button class="habrInterval_QWxleEJpdDI1 buttonTimeManagment_QWxleEJpdDE2">Habr</button>
+          <button class="budgetInterval_QWxleEJpdDI1 buttonTimeManagment_QWxleEJpdDE2">Бюджет</button>
         </div>
-        <ul class="wrapPrevIntervalsDescription">
-          <li class="priority1Interval"></li>
-          <li class="priority2Interval"></li>
-          <li class="priority3Interval"></li>
-          <li class="priority4Interval"></li>
-          <li class="priority5Interval"></li>
+        <ul class="wrapPrevIntervalsDescription_QWxleEJpdDI3">
+          <li class="priority1Interval_QWxleEJpdDIw"></li>
+          <li class="priority2Interval_QWxleEJpdDIw"></li>
+          <li class="priority3Interval_QWxleEJpdDIw"></li>
+          <li class="priority4Interval_QWxleEJpdDIw"></li>
+          <li class="priority5Interval_QWxleEJpdDIw"></li>
         </ul>
       </div>`;
-    overlay.id = 'timeManagmenOverlay';
-    overlay.style.position = 'fixed';
-    overlay.style.display = 'none';
-    overlay.style.justifyContent = 'center';
-    overlay.style.alignItems = 'center';
-    overlay.style.height = '100vh';
-    overlay.style.width = '100vw';
-    overlay.style.zIndex = '2147483647';
-    overlay.style.top = '0';
-    overlay.style.left = '0';
-    overlay.style.background = 'white';
+    overlay.className = 'timeManagmenOverlay_YWxleEJpdDAw'
     document.body.append(overlay);
-    const prevIntervalElemWrap = document.getElementsByClassName('wrapPrevIntervalDescription')[0];
-    prevIntervalElemWrap.style.padding = '10px 0 10px 10px';
-    prevIntervalElemWrap.style.textAlign = 'left';
-    const prevIntervalElem = document.getElementsByClassName('prevIntervalDescription')[0];
-    const quickDescIntervalElem = document.getElementsByClassName('quickDescInterval')[0];
-    quickDescIntervalElem.style.display = 'flex';
-    quickDescIntervalElem.style.justifyContent = 'space-between';
-    const newIntervalElem = document.getElementsByClassName('setNewInterval')[0];
-    newIntervalElem.style.display = 'flex';
-    newIntervalElem.style.justifyContent = 'center';
-    const rootElem = document.getElementsByClassName('root')[0];
-    rootElem.style.width = '300px';
-    const intervalInfoElem = document.getElementById('intervalInfo');
-    intervalInfoElem.style.width = '100%';
-    setLinkStyle(prevIntervalElem);
-    const buttons = document.getElementsByClassName('buttonTimeManagment');
-    for (let elem of buttons) {
-      elem.style.fontSize = '14px';
-      elem.style.fontWeight = '400';
-      elem.style.padding = '1px 7px 2px';
-      elem.style.borderWidth = '1px';
-      elem.style.borderStyle = 'solid';
-      elem.style.borderColor = 'gb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186)';
-      elem.style.borderImage = 'initial';
-      elem.style.borderRadius = '0';
-      elem.style.color = 'rgba(0, 0, 0, 0.847)';
-      elem.style.background = 'rgb(255, 255, 255)';
-      elem.style.lineHeight = '21px';
-
-      elem.onmouseover = ({ target }) => {
-        target.style.cursor = 'pointer';
-      };
-      
-      elem.onmouseout = ({ target }) => {
-        elem.style.cursor = 'default';
-      };
-    }
-    listClassNames.forEach((value) => {
-      document.getElementsByClassName(value)[0].style.display = 'none';
-    });
   }
 
   const showOverlay = async () => {
-    document.getElementById('timeManagmenOverlay').style.display = 'flex';
-    document.getElementById('intervalInfo').focus();
-    document.getElementsByClassName('prevIntervalDescription')[0].textContent = await getLastIntervalDescription();
+    document.getElementsByClassName('timeManagmenOverlay_YWxleEJpdDAw')[0].style.display = 'flex';
+    document.getElementById('intervalInfo_QWxleEJpdDE1').focus();
+    document.getElementsByClassName('prevIntervalDescription_QWxleEJpdDEw')[0].textContent = await getLastIntervalDescription();
     const priorityIntervals = await getPriorityIntervals();
-    const wrapPrevIntervalsDescriptionElem = document.getElementsByClassName('wrapPrevIntervalsDescription')[0];
-    wrapPrevIntervalsDescriptionElem.style.padding = '10px 0 0 15px';
-    wrapPrevIntervalsDescriptionElem.style.listStyle = 'disc outside';
+
     listClassNames.forEach((listElem) => {
       const intervalElem = document.getElementsByClassName(listElem)[0];
       intervalElem.style.display = 'none';
     });
+
     priorityIntervals.forEach(({description}, key) => {
       const intervalElem = document.getElementsByClassName(listClassNames[key])[0];
       intervalElem.textContent = description;
-      setLinkStyle(intervalElem);
-      intervalElem.style.paddingTop = '5px';
       intervalElem.style.display = 'list-item';
     });
   };
   
-  const hideOverlay = () => document.getElementById('timeManagmenOverlay').style.display = 'none';
+  const hideOverlay = () => document.getElementsByClassName('timeManagmenOverlay_YWxleEJpdDAw')[0].style.display = 'none';
 
   const script = document.createElement('script');
   script.src = chrome.runtime.getURL('./src/overlay/createEventOnUserPage.js');
@@ -179,7 +126,7 @@
   const addEventListenerSendInterval = (value, eventStr) => {
     document.addEventListener(eventStr, async () => {
       let nexValue = value;
-      const intervalInfo = document.getElementById('intervalInfo');
+      const intervalInfo = document.getElementById('intervalInfo_QWxleEJpdDE1');
 
       if(typeof value === 'function') {
         nexValue = await value();
@@ -193,7 +140,7 @@
     });
   };
 
-  addEventListenerSendInterval(() => document.getElementById('intervalInfo').value, 'sendIntervalInfo'); 
+  addEventListenerSendInterval(() => document.getElementById('intervalInfo_QWxleEJpdDE1').value, 'sendIntervalInfo'); 
   addEventListenerSendInterval(async () => await getLastIntervalDescription(), 'sendIntervalFromPrev'); 
   addEventListenerSendInterval('Смотрю Youtube', 'sendIntervalYoutube'); 
   addEventListenerSendInterval('Смотрю Twitch', 'sendIntervalTwitch'); 

@@ -23,14 +23,14 @@ document.addEventListener("keyup", function(event) {
     }
 });
 
-document.getElementById("intervalInfoButton").addEventListener("click", sendIntervalDescription);
-document.getElementsByClassName('wrapPrevIntervalDescription')[0].addEventListener("click", sendIntervalFromPrev);
-document.getElementsByClassName('youtubeInterval')[0].addEventListener("click", sendIntervalYoutube);
-document.getElementsByClassName('twitchInterval')[0].addEventListener("click", sendIntervalTwitch);
-document.getElementsByClassName('habrInterval')[0].addEventListener("click", sendIntervalHabr);
-document.getElementsByClassName('budgetInterval')[0].addEventListener("click", sendIntervalBudget);
-document.getElementsByClassName('priority1Interval')[0].addEventListener("click", sendIntervalPriory1);
-document.getElementsByClassName('priority2Interval')[0].addEventListener("click", sendIntervalPriory2);
-document.getElementsByClassName('priority3Interval')[0].addEventListener("click", sendIntervalPriory3);
-document.getElementsByClassName('priority4Interval')[0].addEventListener("click", sendIntervalPriory4);
-document.getElementsByClassName('priority5Interval')[0].addEventListener("click", sendIntervalPriory5);
+document.getElementById("intervalInfoButton_QWxleEJpdDI2").addEventListener("click", sendIntervalDescription);
+document.getElementsByClassName('wrapPrevIntervalDescription_YWxleEJpdDAy')[0].addEventListener("click", sendIntervalFromPrev);
+document.getElementsByClassName('youtubeInterval_QWxleEJpdDI1')[0].addEventListener("click", sendIntervalYoutube);
+document.getElementsByClassName('twitchInterval_QWxleEJpdDI1')[0].addEventListener("click", sendIntervalTwitch);
+document.getElementsByClassName('habrInterval_QWxleEJpdDI1')[0].addEventListener("click", sendIntervalHabr);
+document.getElementsByClassName('budgetInterval_QWxleEJpdDI1')[0].addEventListener("click", sendIntervalBudget);
+document.getElementsByClassName('priority1Interval_QWxleEJpdDIw')[0].addEventListener("click", sendIntervalPriory1);
+document.getElementsByClassName('priority2Interval_QWxleEJpdDIw')[0].addEventListener("click", sendIntervalPriory2);
+document.getElementsByClassName('priority3Interval_QWxleEJpdDIw')[0].addEventListener("click", sendIntervalPriory3);
+document.getElementsByClassName('priority4Interval_QWxleEJpdDIw')[0].addEventListener("click", sendIntervalPriory4);
+document.getElementsByClassName('priority5Interval_QWxleEJpdDIw')[0].addEventListener("click", sendIntervalPriory5);

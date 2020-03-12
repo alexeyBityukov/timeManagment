@@ -18,7 +18,10 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["src/overlay/index.js"]
+      "js": ["src/overlay/index.js"],
+      "css": [
+        "src/overlay/index.css"
+      ]
     }
   ],
   "web_accessible_resources": [

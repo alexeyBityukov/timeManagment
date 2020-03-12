@@ -1,0 +1,89 @@
+.timeManagmenOverlay_YWxleEJpdDAw {
+  background: #fff;
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  z-index: 2147483647;
+  top: 0;
+  left: 0;
+}
+
+.wrapPrevIntervalDescription_YWxleEJpdDAy {
+  padding: 10px 0 10px 10px;
+  text-align: left;
+}
+
+.priority1Interval_QWxleEJpdDIw,
+.priority2Interval_QWxleEJpdDIw,
+.priority3Interval_QWxleEJpdDIw,
+.priority4Interval_QWxleEJpdDIw,
+.priority5Interval_QWxleEJpdDIw,
+.prevIntervalDescription_QWxleEJpdDEw {
+  color: #1a0dab;
+  cursor: default;
+  text-decoration: none;
+}
+.priority1Interval_QWxleEJpdDIw:hover, 
+.priority2Interval_QWxleEJpdDIw:hover, 
+.priority3Interval_QWxleEJpdDIw:hover,
+.priority4Interval_QWxleEJpdDIw:hover, 
+.priority5Interval_QWxleEJpdDIw:hover, 
+.prevIntervalDescription_QWxleEJpdDEw:hover {
+  color: #1a0dab;
+  cursor: pointer;
+  text-decoration: underline;  
+}
+
+.quickDescInterval_QWxleEJpdDEx {
+  display: flex;
+  justify-content: space-between;
+}
+
+.setNewInterval_QWxleEJpdDEx {
+  display: flex;
+  justify-content: center;
+}
+
+.root_YWxleEJpdDAx {
+  width: 300px;
+}
+
+#intervalInfo_QWxleEJpdDE1 {
+  width: 100%;
+}
+
+.buttonTimeManagment_QWxleEJpdDE2 {
+  font-size: 14px;
+  font-weight: 400;
+  padding: 1px 7px 2px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+  border-image: initial;
+  border-radius: 0;
+  color: rgba(0, 0, 0, 0.847);
+  background: rgb(255, 255, 255);
+  line-height: 21px;
+  cursor: default;
+}
+
+.buttonTimeManagment_QWxleEJpdDE2:hover {
+  cursor: pointer;
+}
+
+.priority1Interval_QWxleEJpdDIw,
+.priority2Interval_QWxleEJpdDIw,
+.priority3Interval_QWxleEJpdDIw,
+.priority4Interval_QWxleEJpdDIw,
+.priority5Interval_QWxleEJpdDIw {
+  display: none;
+  padding-top: 5px;
+}
+
+.wrapPrevIntervalsDescription_QWxleEJpdDI3 {
+  padding: 10px 0 0 15px;
+  list-style: disc outside;
+}
