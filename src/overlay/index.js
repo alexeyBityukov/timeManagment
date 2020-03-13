@@ -92,9 +92,20 @@
           <li class="priority4Interval_QWxleEJpdDIw"></li>
           <li class="priority5Interval_QWxleEJpdDIw"></li>
         </ul>
+        <label class="mdc-text-field">
+          <div class="mdc-text-field__ripple"></div>
+          <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+          <span class="mdc-floating-label" id="my-label-id">Hint text</span>
+          <div class="mdc-line-ripple"></div>
+        </label>
       </div>`;
     overlay.className = 'timeManagmenOverlay_YWxleEJpdDAw'
     document.body.append(overlay);
+
+    const { initStyles } = await import(chrome.runtime.getURL("./src/styles/index.js"));
+    initStyles.call(this);
+    
+    mdc.textField.MDCTextField.attachTo(document.querySelector('.mdc-text-field'));
   }
 
   const showOverlay = async () => {

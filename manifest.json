@@ -20,12 +20,14 @@
       "matches": ["<all_urls>"],
       "js": ["src/overlay/index.js"],
       "css": [
-        "src/overlay/index.css"
+        "src/overlay/index.css",
+        "src/styles/index.css"
       ]
     }
   ],
   "web_accessible_resources": [
     "src/messages/index.js",
+    "src/styles/index.js",
     "src/overlay/createEventOnUserPage.js"
  ],
   "permissions": ["storage"],
