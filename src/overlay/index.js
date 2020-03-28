@@ -73,11 +73,21 @@
     overlay.innerHTML = `
       <div class="root_YWxleEJpdDAx">
         <div class="setNewInterval_QWxleEJpdDEx">
-          <input type="text" id="intervalInfo_QWxleEJpdDE1" class="buttonTimeManagment_QWxleEJpdDE2" />
-          <button id="intervalInfoButton_QWxleEJpdDI2" class="buttonTimeManagment_QWxleEJpdDE2">Send</button>
+          <label class="mdc-text-field intervalInfo_QWxleEJpdDE1 mdc-text-field--with-trailing-icon">
+            <div class="mdc-text-field__ripple"></div>
+            <input class="mdc-text-field__input" aria-labelledby="my-label-id" id="intervalInfo_QWxleEJpdDE1" type="fuck_thi_sys">
+            <span class="mdc-floating-label" id="my-label-id">Interval description</span>
+            <div class="mdc-line-ripple"></div>
+            <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="0" role="button" id="intervalInfoButton_QWxleEJpdDI2">send</i>
+          </label>
+          <button class="mdc-button prevIntervalDescription_QWxleEJpdDEw">
+          <span class="mdc-button__ripple"></span>${await getLastIntervalDescription()}
+        </button>
         </div>
         <div class="wrapPrevIntervalDescription_YWxleEJpdDAy">
-          <a class="prevIntervalDescription_QWxleEJpdDEw">${await getLastIntervalDescription()}</a>
+          <button class="mdc-button prevIntervalDescription_QWxleEJpdDEw">
+            <span class="mdc-button__ripple"></span>${await getLastIntervalDescription()}
+          </button>
         </div>
         <div class="quickDescInterval_QWxleEJpdDEx">
           <button class="youtubeInterval_QWxleEJpdDI1 buttonTimeManagment_QWxleEJpdDE2">YouTube</button>
@@ -92,20 +102,15 @@
           <li class="priority4Interval_QWxleEJpdDIw"></li>
           <li class="priority5Interval_QWxleEJpdDIw"></li>
         </ul>
-        <label class="mdc-text-field">
-          <div class="mdc-text-field__ripple"></div>
-          <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
-          <span class="mdc-floating-label" id="my-label-id">Hint text</span>
-          <div class="mdc-line-ripple"></div>
-        </label>
       </div>`;
     overlay.className = 'timeManagmenOverlay_YWxleEJpdDAw'
     document.body.append(overlay);
 
-    const { initStyles } = await import(chrome.runtime.getURL("./src/styles/index.js"));
+    const { initStyles } = await import(chrome.runtime.getURL("../../static/js/material-ui/index.js"));
     initStyles.call(this);
-    
+
     mdc.textField.MDCTextField.attachTo(document.querySelector('.mdc-text-field'));
+    mdc.ripple.MDCRipple.attachTo(document.querySelector('.mdc-button'));
   }
 
   const showOverlay = async () => {

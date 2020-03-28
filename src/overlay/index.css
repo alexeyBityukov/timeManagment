@@ -20,8 +20,7 @@
 .priority2Interval_QWxleEJpdDIw,
 .priority3Interval_QWxleEJpdDIw,
 .priority4Interval_QWxleEJpdDIw,
-.priority5Interval_QWxleEJpdDIw,
-.prevIntervalDescription_QWxleEJpdDEw {
+.priority5Interval_QWxleEJpdDIw {
   color: #1a0dab;
   cursor: default;
   text-decoration: none;
@@ -30,8 +29,7 @@
 .priority2Interval_QWxleEJpdDIw:hover, 
 .priority3Interval_QWxleEJpdDIw:hover,
 .priority4Interval_QWxleEJpdDIw:hover, 
-.priority5Interval_QWxleEJpdDIw:hover, 
-.prevIntervalDescription_QWxleEJpdDEw:hover {
+.priority5Interval_QWxleEJpdDIw:hover {
   color: #1a0dab;
   cursor: pointer;
   text-decoration: underline;  
@@ -51,27 +49,15 @@
   width: 300px;
 }
 
-#intervalInfo_QWxleEJpdDE1 {
+.intervalInfo_QWxleEJpdDE1 {
   width: 100%;
 }
 
-.buttonTimeManagment_QWxleEJpdDE2 {
-  font-size: 14px;
-  font-weight: 400;
-  padding: 1px 7px 2px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
-  border-image: initial;
-  border-radius: 0;
-  color: rgba(0, 0, 0, 0.847);
-  background: rgb(255, 255, 255);
-  line-height: 21px;
-  cursor: default;
-}
-
-.buttonTimeManagment_QWxleEJpdDE2:hover {
-  cursor: pointer;
+#intervalInfo_QWxleEJpdDE1 {
+  box-shadow: none;
+  line-height: initial;
+  margin: 0;
+  display: initial;
 }
 
 .priority1Interval_QWxleEJpdDIw,

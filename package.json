@@ -1,0 +1,22 @@
+{
+  "name": "timemanagment",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "generate-styles": "node node_modules/sass/sass.js src/styles/index.scss static/styles/index.css",
+    "build": "yarn generate-styles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexeyBityukov/timeManagment.git"
+  },
+  "author": "alex.bityuckov@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexeyBityukov/timeManagment/issues"
+  },
+  "homepage": "https://github.com/alexeyBityukov/timeManagment#readme",
+  "dependencies": {
+    "sass": "^1.26.3"
+  }
+}
